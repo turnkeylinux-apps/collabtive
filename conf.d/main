@@ -51,6 +51,9 @@ rm $WEBROOT/install*
 rm $WEBROOT/update.php
 rm -f /tmp/cookie
 
+# set default mail settings and subtitle
+$MYSQL_BATCH --execute "UPDATE $DB_NAME.settings SET mailfrom=\"$ADMIN_MAIL\", mailmethod=\"smtp\", mailhost=\"localhost\", subtitle=\"TurnKey Collabtive\" WHERE ID=0;"
+
 # stop services
 /etc/init.d/mysql stop
 /etc/init.d/apache2 stop
