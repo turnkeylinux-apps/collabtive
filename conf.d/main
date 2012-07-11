@@ -54,6 +54,9 @@ rm -f /tmp/cookie
 # set default mail settings and subtitle
 $MYSQL_BATCH --execute "UPDATE $DB_NAME.settings SET mailfrom=\"$ADMIN_MAIL\", mailmethod=\"smtp\", mailhost=\"localhost\", subtitle=\"TurnKey Collabtive\" WHERE ID=0;"
 
+# set default email address
+/usr/lib/inithooks/bin/collabtive.py --pass=$ADMIN_PASS --email=$ADMIN_MAIL
+
 # tweak footer
 HTML="<div id='turnkey-credit' style='padding-top:20px;text-align:center;font-size:11px;color:#6AB0C5;'><a style='color:#6AB0C5;' href='http://www.turnkeylinux.org/collabtive'>Collabtive Appliance</a> - Powered by <a style='color:#6AB0C5;' href='http://www.turnkeylinux.org'>TurnKey Linux</a></div>"
 
