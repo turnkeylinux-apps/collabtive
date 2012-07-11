@@ -24,3 +24,8 @@ chmod 640 $WEBROOT/config/standard/config.php
 # bugfix: get rid of buggy language
 rm -rf $WEBROOT/language/et
 
+# configure apache
+a2dissite default
+a2ensite collabtive
+a2enmod rewrite
+
