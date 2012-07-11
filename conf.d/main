@@ -11,3 +11,13 @@ ADMIN_MAIL=admin@example.com
 SRC=/usr/local/src
 WEBROOT=/var/www/collabtive
 
+# unpack and set permissions
+mkdir -p $WEBROOT
+unzip $SRC/collabtive*.zip -d $WEBROOT
+rm $SRC/collabtive*.zip
+chown -R root:root $WEBROOT
+chown -R www-data:www-data $WEBROOT/files
+chown -R www-data:www-data $WEBROOT/templates_c
+chown -R www-data:www-data $WEBROOT/config/standard/config.php
+chmod 640 $WEBROOT/config/standard/config.php
+
