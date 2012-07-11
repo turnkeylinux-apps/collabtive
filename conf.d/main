@@ -54,6 +54,15 @@ rm -f /tmp/cookie
 # set default mail settings and subtitle
 $MYSQL_BATCH --execute "UPDATE $DB_NAME.settings SET mailfrom=\"$ADMIN_MAIL\", mailmethod=\"smtp\", mailhost=\"localhost\", subtitle=\"TurnKey Collabtive\" WHERE ID=0;"
 
+# tweak footer
+HTML="<div id='turnkey-credit' style='padding-top:20px;text-align:center;font-size:11px;color:#6AB0C5;'><a style='color:#6AB0C5;' href='http://www.turnkeylinux.org/collabtive'>Collabtive Appliance</a> - Powered by <a style='color:#6AB0C5;' href='http://www.turnkeylinux.org'>TurnKey Linux</a></div>"
+
+sed -i "s|</body>|$HTML\n</body>|" $WEBROOT/templates/winter/footer.tpl
+sed -i "s|</body>|$HTML\n</body>|" $WEBROOT/templates/standard/footer.tpl
+
+sed -i "s|{/if}|{/if}\n$HTML|" $WEBROOT/templates/winter/login.tpl
+sed -i "s|{/if}|{/if}\n$HTML|" $WEBROOT/templates/standard/login.tpl
+
 # stop services
 /etc/init.d/mysql stop
 /etc/init.d/apache2 stop
