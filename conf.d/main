@@ -21,3 +21,6 @@ chown -R www-data:www-data $WEBROOT/templates_c
 chown -R www-data:www-data $WEBROOT/config/standard/config.php
 chmod 640 $WEBROOT/config/standard/config.php
 
+# bugfix: get rid of buggy language
+rm -rf $WEBROOT/language/et
+
