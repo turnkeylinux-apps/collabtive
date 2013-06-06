@@ -2,7 +2,7 @@ turnkey-collabtive-12.1 (1) turnkey; urgency=low
 
   * Added phpsh (interative shell for PHP) and php5-cli (generically useful).
 
-  * Hardcoded component versions:
+  * Upstream source component versions:
 
     collabtive      0.7.6
 
