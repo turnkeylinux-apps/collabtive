@@ -41,7 +41,7 @@ $MYSQL_BATCH --execute "grant all privileges on $DB_NAME.* to $DB_USER@localhost
 URL="http://127.0.0.1/install.php?locale=en&"
 CURL="curl -c /tmp/cookie -b /tmp/cookie"
 
-$CURL "${URL}action=step2" --data "db_host=localhost&db_name=$DB_NAME&db_user=$DB_USER&db_pass=$DB_PASS"
+$CURL "${URL}action=step2" --data "db_driver=mysql&db_host=localhost&db_name=$DB_NAME&db_user=$DB_USER&db_pass=$DB_PASS"
 $CURL "${URL}action=step3" --data "name=$ADMIN_NAME&pass=$ADMIN_PASS"
 
 rm $WEBROOT/install*
