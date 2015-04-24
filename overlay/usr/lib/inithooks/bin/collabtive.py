@@ -57,7 +57,7 @@ def main():
 
     m = MySQL()
     m.execute('UPDATE collabtive.user SET pass=\"%s\", email=\"%s\" WHERE name=\"admin\";' % (hash, email))
-    m.execute('UPDATE collabtive.settings SET mailfrom=\"%s\" WHERE ID=0;' % email)
+    m.execute('UPDATE collabtive.settings SET settingsValue=\"%s\" WHERE settingsKey=\"mailfrom\";' % email)
 
 
 if __name__ == "__main__":
