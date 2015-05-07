@@ -21,9 +21,6 @@ chown -R www-data:www-data $WEBROOT/templates_c
 chown -R www-data:www-data $WEBROOT/config/standard/config.php
 chmod 640 $WEBROOT/config/standard/config.php
 
-# bugfix: get rid of buggy language
-rm -rf $WEBROOT/language/et
-
 # configure apache
 a2dissite default
 a2ensite collabtive
@@ -44,7 +41,7 @@ $MYSQL_BATCH --execute "grant all privileges on $DB_NAME.* to $DB_USER@localhost
 URL="http://127.0.0.1/install.php?locale=en&"
 CURL="curl -c /tmp/cookie -b /tmp/cookie"
 
-$CURL "${URL}action=step2" --data "db_host=localhost&db_name=$DB_NAME&db_user=$DB_USER&db_pass=$DB_PASS"
+$CURL "${URL}action=step2" --data "db_driver=mysql&db_host=localhost&db_name=$DB_NAME&db_user=$DB_USER&db_pass=$DB_PASS"
 $CURL "${URL}action=step3" --data "name=$ADMIN_NAME&pass=$ADMIN_PASS"
 
 rm $WEBROOT/install*
@@ -52,18 +49,18 @@ rm $WEBROOT/update.php
 rm -f /tmp/cookie
 
 # set default mail settings and subtitle
-$MYSQL_BATCH --execute "UPDATE $DB_NAME.settings SET mailfrom=\"$ADMIN_MAIL\", mailmethod=\"smtp\", mailhost=\"localhost\", subtitle=\"TurnKey Collabtive\" WHERE ID=0;"
-
-# set default email address
-/usr/lib/inithooks/bin/collabtive.py --pass=$ADMIN_PASS --email=$ADMIN_MAIL
-
+$MYSQL_BATCH --execute " \
+    UPDATE $DB_NAME.settings SET settingsValue=\"$ADMIN_MAIL\" where settingsKey=\"mailfrom\"; \
+    UPDATE $DB_NAME.settings SET settingsValue=\"Collabtive Admin\" where settingsKey=\"mailfromname\"; \
+    UPDATE $DB_NAME.settings SET settingsValue=\"smtp\" where settingsKey=\"mailmethod\"; \
+    UPDATE $DB_NAME.settings SET settingsValue=\"localhost\" WHERE settingsKey=\"mailhost\"; \
+    UPDATE $DB_NAME.settings SET settingsValue=\"TurnKey Collabtive\" WHERE settingsKey=\"subtitle\"; \
+"
 # tweak footer
 HTML="<div id='turnkey-credit' style='padding-top:20px;text-align:center;font-size:11px;color:#6AB0C5;'><a style='color:#6AB0C5;' href='http://www.turnkeylinux.org/collabtive'>Collabtive Appliance</a> - Powered by <a style='color:#6AB0C5;' href='http://www.turnkeylinux.org'>TurnKey Linux</a></div>"
 
-sed -i "s|</body>|$HTML\n</body>|" $WEBROOT/templates/winter/footer.tpl
 sed -i "s|</body>|$HTML\n</body>|" $WEBROOT/templates/standard/footer.tpl
 
-sed -i "s|{/if}|{/if}\n$HTML|" $WEBROOT/templates/winter/login.tpl
 sed -i "s|{/if}|{/if}\n$HTML|" $WEBROOT/templates/standard/login.tpl
 
 # stop services
