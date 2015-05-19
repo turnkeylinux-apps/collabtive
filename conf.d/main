@@ -22,7 +22,7 @@ chown -R www-data:www-data $WEBROOT/config/standard/config.php
 chmod 640 $WEBROOT/config/standard/config.php
 
 # configure apache
-a2dissite default
+a2dissite 000-default
 a2ensite collabtive
 a2enmod rewrite
 
