@@ -9,6 +9,7 @@ Option:
 
 import sys
 import getopt
+import inithooks_cache
 import hashlib
 
 from dialog_wrapper import Dialog
@@ -52,6 +53,8 @@ def main():
             "Collabtive Email",
             "Enter email address for the Collabtive 'admin' account.",
             "admin@example.com")
+
+    inithooks_cache.write('APP_EMAIL', email)
 
     hash = hashlib.sha1(password).hexdigest()
 
