@@ -2,6 +2,10 @@ turnkey-collabtive-14.0 (1) turnkey; urgency=low
 
   * Upgraded to the latest upstream source version of Collabtive (2.1.1)
 
+  * Replaced PHPMyAdmin with Adminer
+
+  * Hardened default SSL settings
+
   * Note: Please refer to turnkey-core's changelog for changes common to all
     appliances. Here we only describe changes specific to this appliance.
 
