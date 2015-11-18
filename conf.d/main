@@ -58,7 +58,7 @@ $MYSQL_BATCH --execute " \
     UPDATE $DB_NAME.settings SET settingsValue=\"TurnKey Collabtive\" WHERE settingsKey=\"subtitle\"; \
 "
 # tweak footer
-HTML="<div id='turnkey-credit' style='padding-top:20px;text-align:center;font-size:11px;color:#6AB0C5;'><a style='color:#6AB0C5;' href='http://www.turnkeylinux.org/collabtive'>Collabtive Appliance</a> - Powered by <a style='color:#6AB0C5;' href='http://www.turnkeylinux.org'>TurnKey Linux</a></div>"
+HTML="<div id='turnkey-credit' style='padding-top:20px;text-align:center;font-size:11px;color:#6AB0C5;'><a style='color:#6AB0C5;' href='https://www.turnkeylinux.org/collabtive'>Collabtive Appliance</a> - Powered by <a style='color:#6AB0C5;' href='https://www.turnkeylinux.org'>TurnKey Linux</a></div>"
 
 sed -i "s|</body>|$HTML\n</body>|" $WEBROOT/templates/standard/footer.tpl
 
