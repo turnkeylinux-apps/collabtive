@@ -1,5 +1,5 @@
-Collabtive - GroupWare
-======================
+Collabtive - Open Source Project Management
+===========================================
 
 `Collabtive`_ is web-based project management software intended for
 small to medium-sizes businesses and freelancers. It is an open Source
