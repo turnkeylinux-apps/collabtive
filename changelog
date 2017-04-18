@@ -2,6 +2,8 @@ turnkey-collabtive-14.2 (1) turnkey; urgency=low
 
   * Upgraded to the latest upstream source version of Collabtive (3.0.1)
 
+  * Updated Adminer to 4.2.5
+
   * Installed security updates.
 
   * Note: Please refer to turnkey-core's changelog for changes common to all
