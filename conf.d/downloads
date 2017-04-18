@@ -5,7 +5,7 @@ dl() {
     cd $2; curl -L -f -O $PROXY $1; cd -
 }
 
-VERSION="2.1.1/collabtive-211.zip"
+VERSION="3.0.1/collabtive-301.zip"
 URL="http://downloads.sourceforge.net/project/collabtive/collabtive/$VERSION"
 
 dl $URL /usr/local/src
