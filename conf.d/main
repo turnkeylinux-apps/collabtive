@@ -27,9 +27,8 @@ a2ensite collabtive
 a2enmod rewrite
 
 # start services
-/etc/init.d/mysql start
-/etc/init.d/apache2 start
-
+service mysql start
+service apache2 start
 
 # setup the database
 MYSQL_BATCH="mysql --user=root --password=$MYSQL_PASS --batch"
@@ -66,5 +65,6 @@ sed -i "s|</body>|$HTML\n</body>|" $WEBROOT/templates/standard/footer.tpl
 sed -i "s|{/if}|{/if}\n$HTML|" $WEBROOT/templates/standard/login.tpl
 
 # stop services
-/etc/init.d/mysql stop
-/etc/init.d/apache2 stop
+service mysql stop
+service apache2 stop
+
