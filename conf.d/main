@@ -57,6 +57,10 @@ $MYSQL_BATCH --execute " \
     UPDATE $DB_NAME.settings SET settingsValue=\"localhost\" WHERE settingsKey=\"mailhost\"; \
     UPDATE $DB_NAME.settings SET settingsValue=\"TurnKey Collabtive\" WHERE settingsKey=\"subtitle\"; \
 "
+
+# add admin user
+$MYSQL_BATCH --execute "INSERT INTO $DB_NAME.user (ID,name,email,pass) VALUES (NULL,'admin','admin@example.com','default');"
+
 # tweak footer
 HTML="<div id='turnkey-credit' style='padding-top:20px;text-align:center;font-size:11px;color:#6AB0C5;'><a style='color:#6AB0C5;' href='https://www.turnkeylinux.org/collabtive'>Collabtive Appliance</a> - Powered by <a style='color:#6AB0C5;' href='https://www.turnkeylinux.org'>TurnKey Linux</a></div>"
 
