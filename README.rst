@@ -32,31 +32,31 @@ Always ensure that you have a current and tested backup before performing an
 upgrade. Ideally also do a test upgrade proceedure on a development server,
 before updating your production server.
 
-  1. Download the latest version of Collabtive::
+    1. Download the latest version of Collabtive::
 
-    cd /var/www
-    URL=https://sourceforge.net/projects/collabtive/files/latest/download
-    wget $URL -O collabtive.zip
+        cd /var/www
+        URL=https://sourceforge.net/projects/collabtive/files/latest/download
+        wget $URL -O collabtive.zip
 
-  2. Move the current config::
+    2. Move the current config::
 
-    mv /var/www/collabtive/config /var/www/collabtive/config.orig
+        mv /var/www/collabtive/config /var/www/collabtive/config.orig
 
-  3. Unpack the Collabtive archive - replacing all existing files::
+    3. Unpack the Collabtive archive - replacing all existing files::
 
-    unzip collabtive.zip -d /var/www/collabtive
+        unzip collabtive.zip -d /var/www/collabtive
 
-  4. Move original config back into place::
+    4. Move original config back into place::
 
-    cp -R /var/www/collabtive/config.orig/* /var/www/collabtive/config/
+        cp -R /var/www/collabtive/config.orig/* /var/www/collabtive/config/
 
-  5. Ensure directory is owned by the webser user (www-data)::
+    5. Ensure directory is owned by the webser user (www-data)::
 
-    chown -r www-data:www-data /var/www/collabtive
+        chown -r www-data:www-data /var/www/collabtive
 
-  6. Point your browser to update.php and follow the in browser instructions.
+    6. Point your browser to update.php and follow the in browser instructions.
 
-  7. Delete install.php and update.php from your server.
+    7. Delete install.php and update.php from your server.
 
 Credentials *(passwords set at first boot)*
 -------------------------------------------
