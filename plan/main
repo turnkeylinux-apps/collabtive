@@ -5,6 +5,7 @@ php-gd
 php-cli
 php-curl
 php-sqlite3
+php-mbstring
 
 unzip
 
