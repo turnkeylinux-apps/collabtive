@@ -1,3 +1,9 @@
+turnkey-collabtive-15.1 (1) turnkey; urgency=low
+
+  * Bugfix: admin user have not admin rights - closes #1199.
+
+ -- Vlad Kuzmenko <vlad.work.here@gmail.com>  Mon, 17 Sep 2018 07:31:49 +0200
+
 turnkey-collabtive-15.0 (1) turnkey; urgency=low
 
   * Upgraded to the latest upstream source version of Collabtive (3.1)
