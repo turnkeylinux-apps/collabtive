@@ -1,3 +1,10 @@
+turnkey-collabtive-15.2 (1) turnkey; urgency=low
+
+  * Rebuild to resolve inadvertant removal of mariadb during sec-updates
+    - part of #1246.
+
+ -- Jeremy Davis <jeremy@turnkeylinux.org>  Wed, 21 Nov 2018 18:07:24 +1100
+
 turnkey-collabtive-15.1 (1) turnkey; urgency=low
 
   * Bugfix: admin user have not admin rights - closes #1199.
